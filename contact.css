@@ -1,0 +1,616 @@
+/* font-family: 'Poppins', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* font-family: 'M PLUS 1p', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap');
+
+/* font-family: 'Roboto', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* font-family: 'Roboto Slab', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* font-family: 'Noto Sans JP', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+/* font-family: 'Noto Serif JP', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+
+
+
+:root {
+    /* FONTS */
+    --ff-title-EN:      'Poppins', sans-serif;
+    --ff-title-JP:      'M PLUS 1p', sans-serif;
+
+    --ff-sans-serif-EN: 'Roboto', sans-serif;
+    --ff-serif-EN:      'Roboto Slab', serif;
+
+    --ff-sans-serif-JP: 'Noto Sans JP', sans-serif;
+    --ff-serif-JP:      'Noto Serif JP', serif;
+
+
+    /* GRADIENTS */
+    --Emerald-water-gradient: linear-gradient(to right top, #348F50, #56B4D3);
+    --glass-gradient:         linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    --project-title-gradient: linear-gradient(to right bottom, rgba(255, 255, 255, .24), rgba(255, 255, 255, 0.1));
+
+    /* COLORS */
+    --emerald-green:    #348F50;
+    --indigo:           #005252;
+    --water-blue:       #56B4D3;
+    --dark-water-blue:  #2994B8;
+    --darker-water-blue:#066889;
+
+    --error:            #ff4800;
+    --success:          #007025;
+
+    --js-yellow:        #f7df1e;
+    --purple:           #9116A2;
+    --dark-purple:      #5522A8;
+    --yellow-green:     #D6F11D;
+
+
+
+
+    /* TRANSPARENTS */
+    --white-opacity-10: rgba(255, 255, 255, 0.1);
+    --white-opacity-20: rgba(255, 255, 255, 0.2);
+    --white-opacity-30: rgba(255, 255, 255, 0.3);
+    --white-opacity-40: rgba(255, 255, 255, 0.4);
+    --white-opacity-50: rgba(255, 255, 255, 0.5);
+    --white-opacity-60: rgba(255, 255, 255, 0.6);
+    --white-opacity-70: rgba(255, 255, 255, 0.7);
+    --white-opacity-80: rgba(255, 255, 255, 0.8);
+    --white-opacity-90: rgba(255, 255, 255, 0.9);
+    --white-opacity-FF: rgba(255, 255, 255, 1.0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+/************* SCROLL BAR *************/
+
+/* The -webkit-scrollbar is not supported in Firefox or in Edge, prior version 79. */
+
+/* width */
+::-webkit-scrollbar {
+    width: .3rem;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+	background-color: var(--Emerald-water-gradient);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--white-opacity-60);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.main {
+    height: 100vh;
+    width: 100vw;
+    background: var(--Emerald-water-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass {
+    background: var(--glass-gradient);
+    min-width: 100%;
+    backdrop-filter: blur(3rem);
+    overflow: auto;
+    z-index: 99;
+}
+
+.glass {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-auto-flow: row;
+    max-height: 100%;
+}
+
+.dashboard {
+    position: relative;
+    row-gap: 1em;
+    padding: .5em;
+    height: 100%;
+}
+
+.dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background: var(--glass-gradient);
+    z-index: -1;
+}
+
+/* ************************************ */
+
+.profile {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile .image {
+    border-radius: 50%;
+    max-width: 10rem;
+    max-height: auto;
+    margin-bottom: .5em;   
+}
+
+.profile-eng {
+    font-family: 'Poppins', sans-serif;
+    color: var(--darker-water-blue);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.8rem;
+}
+
+.profile-jpn {
+    font-family: 'M PLUS 1p', sans-serif;
+    color: var(--darker-water-blue);
+    font-size: 1.3rem;
+    font-weight: 900;
+    line-height: 1.8rem;
+}
+
+.dev-des-wrap {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-txt {
+    font-family: 'Roboto Slab', serif;
+    color: var(--dark-water-blue);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+/* ************************************ */
+
+.navigation {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navigation > :nth-child(2) {
+    margin: 1.25rem 0;
+}
+
+.nav-child {
+    width: 75%;
+    background: var(--white-opacity-60);
+    border-radius: 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: .25em;
+}
+
+.nav-icon {
+    fill: var(--darker-water-blue);
+    width: 2.5em;
+}
+
+.nav-text {
+    font-family: var(--ff-sans-serif-EN);
+    color: var(--indigo);
+    font-size: 1.05rem; 
+    font-weight: 450;
+    letter-spacing: .50px;
+}
+
+.divider {
+    margin: auto;
+    width: 100%;
+    height: .25em;
+    background: var(--Emerald-water-gradient);
+    border-radius: 2em;
+}
+
+.resume-wrap {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.resume-wrap > :nth-child(1) {
+    margin-bottom: .75em;
+}
+
+.resume-wrap > :nth-child(2) {
+    margin-top: .75em;
+}
+
+.resume {
+    background: var(--white-opacity-60);  
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    padding: .25em 0;
+}
+
+.resume-icon {
+    fill: var(--indigo);
+    width: 1.5rem;
+    height: auto;    
+}
+
+.resume-text {
+    font-size: 1.05rem;
+    font-weight: 450;
+    letter-spacing: 1px;
+    color: var(--indigo);
+    padding-left: .5rem;
+}
+
+.eng-text {
+    font-family: var(--ff-sans-serif-EN);
+}
+
+.jpn-text {
+    font-family: var(--ff-sans-serif-JP);
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+}
+
+.sns-wrap {
+    width: 100%; 
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sns-icon {
+    fill: var(--indigo);
+    width: 3em;
+}
+
+.contact-column {
+    flex-direction: column;
+}
+
+.contact-title {
+    background: var(--project-title-gradient);
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--ff-title-EN);
+    color: var(--darker-water-blue);
+    font-size: 1.75rem;
+}
+
+.form-wrap {
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form {
+    flex-direction: column;
+    width: 100%;
+    padding: 1em 0;
+}
+
+.form-label,
+.form-box,
+.message-box {
+ width: 90%;
+ margin: .25em auto;
+}
+
+.form-label {
+    font-family: var(--ff-title-EN);
+    font-size: 1.1rem;
+    letter-spacing: .5px;
+    font-weight: 600;
+    color: var(--darker-water-blue);
+}
+
+.form-box {
+    border: 3px solid transparent;
+    border-radius: 2em;
+    height: 5vh;
+    padding: 0 .5em;
+    background: var(--white-opacity-70);
+    font-family: var(--ff-serif-EN);
+    font-size: 1rem;
+    color: var(--indigo);
+}
+
+.message-box {
+    background: var(--white-opacity-70);
+    border: 3px solid transparent;
+    border-radius: 1em;
+    height: 20vh;
+    padding: .5em;
+    font-family: var(--ff-san-serif-EN);
+    font-size: 1.15rem;
+    color: var(--indigo);
+    font-weight: 300;
+}
+
+.btnMsg-wrap {
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    padding: 1em;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 2em;
+    height: 5vh;
+    background: var(--white-opacity-70);
+    font-family: var(--ff-sans-serif-EN);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--indigo);
+    margin: .5em 0;
+}
+
+#status.success,
+#status.error {
+    padding: .25em;
+    margin-top: .5em;
+    border-radius: 2em;
+    background: var(--white-opacity-40);
+
+    font-family: var(--ff-sans-serif-EN);
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#status.success {
+ color: var(--success);
+}
+
+#status.error {
+    color: var(--error);
+}
+
+/*******HOVER*******/
+
+.nav-child:hover,
+.nav-child:focus,
+.navchild:active,
+.resume:hover,
+.resume:focus,
+.resume:active {
+    background: var(--white-opacity-80);
+}
+
+.sns-icon:hover,
+.sns-icon:focus,
+.sns-icon:active {
+    fill: var(--purple);
+}
+
+.form-box:hover,
+.form-box:focus,
+.form-box:active,
+.message-box:hover,
+.message-box:focus,
+.message-box:active {
+    border: solid 3px var(--dark-purple) ;
+    background: var(--white-opacity-80);
+}
+
+.submit-button:hover,
+.submit-button:focus,
+.submit-button:active {
+    background: var(--white-opacity-80);
+    font-size: 1.2rem;
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+
+    .glass {
+        height: 96vh;
+        min-width: 95vw;
+        border-radius: 2em;
+        grid-template-columns: 1fr;
+    }
+
+   .dashboard {
+       grid-template-rows: 
+       .5fr 
+       .75fr 
+       .1fr 
+       .25fr 
+       .20fr
+   }
+
+    .nav-child {
+        width: 75%;
+    }
+
+    .resume-wrap {
+        flex-direction: column;
+        justify-content: center;
+   
+    }
+
+    .resume-wrap > :nth-child(1) {
+        margin-bottom: .75em;
+        
+    }
+
+    .resume-wrap > :nth-child(2) {
+        margin-top: .75em;
+        
+    }
+
+    .resume {
+        width: 75%;
+    }
+
+    .form-label,
+    .form-box,
+    .message-box {
+     width: 70%;
+     margin: .25em auto;
+    }
+
+}
+
+@media screen and (min-width: 1025px) {
+
+    .glass {
+        min-height: 95vh;
+        min-width: 97vw;
+        margin: 1em;
+        border-radius: 2rem;
+        grid-template-columns: .5fr 1fr;
+    }
+
+    .nav-child {
+        width: 75%;
+    }
+
+    .resume-wrap {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .resume {
+        width: 75%;
+    }
+
+    .resume {
+        padding: 0;
+        height: 2.75em;
+    }
+
+    .sns-wrap {
+        justify-content: space-around;
+    }
+
+    .form-wrap {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .submit-button {
+        margin: 2% 0;
+    }
+
+}
+
+@media screen and (min-width: 1025px) and (min-height:1025px) {
+
+    .profile .image {
+        max-width: 50%;
+        max-height: auto;
+    }
+
+    .navigation > :nth-child(2) {
+        margin: 3em 0
+    }
+
+
+    .nav-child {
+        height: 40%;
+        border-radius: 5em;
+    }
+
+    .nav-text {
+        font-size: 1.5vw;
+    }
+
+    .nav-icon {
+        width: 2vw;
+    }
+    
+    .resume-wrap > :nth-child(1) {
+        margin-bottom: 2em;
+    }
+
+    .resume {
+        height: 40%;
+        border-radius: 5em;
+    }
+
+    .resume-icon {
+        width: 1.5vw;
+    }
+
+    .resume-text {
+        font-size: 1.5vw;
+    }
+
+    .sns-icon {
+        width: 3vw;
+    }
+
+    .contact-title {
+        font-size: 2vw;
+    }
+
+    .form-label {
+        font-size: 1.1vw;
+    }
+
+    .form-box {
+        font-size: 1vw;
+    }
+
+    .message-box {
+        font-size: 1.2vw;
+    }
+
+    .submit-button {
+        font-size: 1.5vw;
+    }
+
+    #status.success,
+    #status.error {
+        font-size: 1.4vw;
+    }
+}
